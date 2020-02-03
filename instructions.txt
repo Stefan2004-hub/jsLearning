@@ -1,2 +1,7 @@
 https://codepen.io/
 start coding
+
+for adding javascript react: click on the gear(whhel):
+Javascript processor = babel
+add react
+add react-dom
