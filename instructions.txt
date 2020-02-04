@@ -5,3 +5,9 @@ for adding javascript react: click on the gear(whhel):
 Javascript processor = babel
 add react
 add react-dom
+
+for Understanding the Base Features & Syntax
+search on goole create react app -> use the link facebookincubator from github
+https://github.com/facebook/create-react-app
+commands:
+npm install -g npx
