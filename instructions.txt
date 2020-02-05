@@ -11,3 +11,7 @@ search on goole create react app -> use the link facebookincubator from github
 https://github.com/facebook/create-react-app
 commands:
 npm install -g npx
+--npx create-react-app my-app
+--cd my-app
+npx create-react-app react-complete-guide --scripts-version 1.1.5
+npm start
