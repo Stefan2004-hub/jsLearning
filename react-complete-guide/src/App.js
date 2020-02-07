@@ -13,7 +13,8 @@ class App extends Component {
           {name:'Manu', age:29},
           {name:'Bunicu', age:56}
         ],
-        otherObject: "Other Value"
+        otherObject: "Other Value",
+        showDiv:false
     };
     switchNameHandler = (newName) => {
       // console.log("Was Clicked");
@@ -26,6 +27,13 @@ class App extends Component {
           ]
         });
       };
+    
+    divHandler = () => {
+      const showDivCond = this.state.showDiv;
+      this.setState({
+        showDiv:!showDivCond
+      })
+    }
     changeNameValue = (event) => {
       this.setState({
         persons:[
@@ -36,6 +44,17 @@ class App extends Component {
       });
     }
   render() {
+    let persons;
+    
+    if(this.state.showDiv){
+      persons = (
+          <div>
+            <Person name = {this.state.persons[0].name} age={this.state.persons[0].age} click={this.switchNameHandler.bind(this, 'Bogdan')}/>
+            <Person name={this.state.persons[1].name} age={this.state.persons[1].age} change={this.changeNameValue}>My Hobbies are: Racing</Person>
+            <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+          </div>
+      );
+    }
     const style = {
       backgroundColor:'white',
       font:'inherit',
@@ -71,22 +90,17 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I am a Robot</h1>
         <p>This is working</p>
-        <button onClick={this.switchNameHandler.bind(this, 'Maximilian')} style={style}>Switch Name</button>
+        {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilian')} style={style}>Switch Name</button> */}
+        <button onClick={this.divHandler} style={style}>Switch Name</button>
         {/* <button onClick={() => this.switchNameHandler('Maximilian')}>Switch Name</button> */}
         {/* <button onClick={switchNameHandler}>Switch Name</button> */}
         {/* <Person name = "Yo" age="44"/>
         <Person name="Bogdan" age="15">My Hobbies are: Racing</Person>
         <Person name="Bingo" age="32"/> */}
-        
-        <Person name = {this.state.persons[0].name} age={this.state.persons[0].age} click={this.switchNameHandler.bind(this, 'Bogdan')}/>
-        {/* <Person name = {this.state.persons[0].name} age={this.state.persons[0].age} click={() => this.switchNameHandler('Bogdan')}/> */}
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age} change={this.changeNameValue}>My Hobbies are: Racing</Person>
-        <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
-        
-        {/* <Person name = {personState.persons[0].name} age={personState.persons[0].age}/>
-        <Person name={personState.persons[1].name} age={personState.persons[1].age}>My Hobbies are: Racing</Person>
-        <Person name={personState.persons[2].name} age={personState.persons[2].age}/> */}
-
+        {/* {this.state.showDiv ? */}
+          {persons}
+          {/* :null */}
+        {/* } */}
       </div>
     );
     // console.log(personState, otherState);
