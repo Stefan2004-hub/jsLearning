@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import React, {useState} from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import Radium from 'radium';
 import Person from './Person/Person';
 // import { useState } from 'react';
 
@@ -68,6 +69,29 @@ class App extends Component {
     }
 
   render() {
+    const style = {
+      backgroundColor:'green',
+      color:'white',
+      font:'inherit',
+      border:'1px solid blue',
+      padding: '8px',
+      cursor: 'pointer',
+      ':hover':{
+        backgroundColor:'lightgreen',
+        color:'black'
+      }
+    };
+
+    const classes = [];
+
+    if (this.state.persons.length <=2){
+      classes.push('red');
+    }
+
+    if (this.state.persons.length <=1 ){
+      classes.push('bold');
+    }
+
     let persons;
 
     if(this.state.showDiv){
@@ -87,15 +111,16 @@ class App extends Component {
             <Person name={this.state.persons[1].name} age={this.state.persons[1].age} change={this.changeNameValue}>My Hobbies are: Racing</Person>
             <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/> */}
           </div>
+
       );
+      style.backgroundColor = 'red';
+
+      style[':hover'] = {
+        backgroundColor:'salmon',
+        color:'black'
+      }
     }
-    const style = {
-      backgroundColor:'white',
-      font:'inherit',
-      border:'1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    };
+
     console.log(this.state);
     // const [personState, setPersonsState] = useState({
     //     persons:[
@@ -123,7 +148,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi, I am a Robot</h1>
-        <p>This is working</p>
+        <p className = {classes.join(' ')}>This is working</p>
         {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilian')} style={style}>Switch Name</button> */}
         <button onClick={this.divHandler} style={style}>Switch Name</button>
         {/* <button onClick={() => this.switchNameHandler('Maximilian')}>Switch Name</button> */}
@@ -142,7 +167,7 @@ class App extends Component {
   }
 }
 // console.log(state);
-export default App;
+export default Radium(App);
 
 // state = {
 //   persons:[
