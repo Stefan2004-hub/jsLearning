@@ -19,3 +19,6 @@ npm start
 --for installing radium, that is used for sudo selectors, like hover:
 write in the visual studio code, in terminal the following command:
 npm install --save radium
+
+--for using styled components:
+https://styled-components.com/

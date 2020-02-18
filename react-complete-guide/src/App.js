@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import React, {useState} from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Radium from 'radium';
+// import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
 // import { useState } from 'react';
 
@@ -96,22 +96,21 @@ class App extends Component {
 
     if(this.state.showDiv){
       persons = (
-          <div>
-            {this.state.persons.map((persons, index) => {
-              return <Person 
-              name={persons.name} 
-              age = {persons.age} 
-              key={persons.id}
-              click = {() => this.deletePersonHandler(index)}
-              change={(event) => this.changeNameValue(event, persons.id)}>
-                {this.state.Hobbies[index]}
-              </Person>
-            })}
-            {/* <Person name = {this.state.persons[0].name} age={this.state.persons[0].age} click={this.switchNameHandler.bind(this, 'Bogdan')}/>
-            <Person name={this.state.persons[1].name} age={this.state.persons[1].age} change={this.changeNameValue}>My Hobbies are: Racing</Person>
-            <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/> */}
-          </div>
-
+        <div>
+          {this.state.persons.map((persons, index) => {
+            return <Person 
+            name={persons.name} 
+            age = {persons.age} 
+            key={persons.id}
+            click = {() => this.deletePersonHandler(index)}
+            change={(event) => this.changeNameValue(event, persons.id)}>
+              {this.state.Hobbies[index]}
+            </Person>
+          })}
+          {/* <Person name = {this.state.persons[0].name} age={this.state.persons[0].age} click={this.switchNameHandler.bind(this, 'Bogdan')}/>
+          <Person name={this.state.persons[1].name} age={this.state.persons[1].age} change={this.changeNameValue}>My Hobbies are: Racing</Person>
+          <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/> */}
+        </div>
       );
       style.backgroundColor = 'red';
 
@@ -146,28 +145,31 @@ class App extends Component {
   // }
 
     return (
-      <div className="App">
-        <h1>Hi, I am a Robot</h1>
-        <p className = {classes.join(' ')}>This is working</p>
-        {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilian')} style={style}>Switch Name</button> */}
-        <button onClick={this.divHandler} style={style}>Switch Name</button>
-        {/* <button onClick={() => this.switchNameHandler('Maximilian')}>Switch Name</button> */}
-        {/* <button onClick={switchNameHandler}>Switch Name</button> */}
-        {/* <Person name = "Yo" age="44"/>
-        <Person name="Bogdan" age="15">My Hobbies are: Racing</Person>
-        <Person name="Bingo" age="32"/> */}
-        {/* {this.state.showDiv ? */}
-          {persons}
-          {/* :null */}
-        {/* } */}
-      </div>
+      // <StyleRoot>
+        <div className="App">
+          <h1>Hi, I am a Robot</h1>
+          <p className = {classes.join(' ')}>This is working</p>
+          {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilian')} style={style}>Switch Name</button> */}
+          <button onClick={this.divHandler} style={style}>Switch Name</button>
+          {/* <button onClick={() => this.switchNameHandler('Maximilian')}>Switch Name</button> */}
+          {/* <button onClick={switchNameHandler}>Switch Name</button> */}
+          {/* <Person name = "Yo" age="44"/>
+          <Person name="Bogdan" age="15">My Hobbies are: Racing</Person>
+          <Person name="Bingo" age="32"/> */}
+          {/* {this.state.showDiv ? */}
+            {persons}
+            {/* :null */}
+          {/* } */}
+        </div>
+      // </StyleRoot>
     );
     // console.log(personState, otherState);
     // return React.createElement('div', {className:'App'}, React.createElement('h1', null, 'Hi I\'m a Robott'));
   }
 }
 // console.log(state);
-export default Radium(App);
+// export default Radium(App);
+export default App;
 
 // state = {
 //   persons:[
