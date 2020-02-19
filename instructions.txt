@@ -22,3 +22,14 @@ npm install --save radium
 
 --for using styled components:
 https://styled-components.com/
+
+--after commit in git, run the command:
+npm run eject
+and choose y
+
+then in the config folder you have to alter the webpack.config.dev.js file -> after the "test: /\.css$/" line, you need to add the followings:
+                  modules:true,
+                  localIdentName: '[name]__[local]__[hash:base64:5]'
+				  
+in the options, after the line importLoaders: 1,
+these two lines need to be passed also in the prod file, after the line sourceMap: shouldUseSourceMap,

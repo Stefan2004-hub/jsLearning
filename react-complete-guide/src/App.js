@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import styled from 'styled-components';
 // import React, {useState} from 'react';
 // import logo from './logo.svg';
-import './App.css';
+import Classes from './App.css';
 // import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
 // import { useState } from 'react';
@@ -96,14 +96,14 @@ class App extends Component {
     //   }
     // };
 
-    const classes = [];
+    const assignedClasses = [];
 
     if (this.state.persons.length <=2){
-      classes.push('red');
+      assignedClasses.push(Classes.red);
     }
 
     if (this.state.persons.length <=1 ){
-      classes.push('bold');
+      assignedClasses.push(Classes.bold);
     }
 
     let persons;
@@ -160,13 +160,13 @@ class App extends Component {
 
     return (
       // <StyleRoot>
-        <div className="App">
+        <div className={Classes.App}>
           <h1>Hi, I am a Robot</h1>
-          <p className = {classes.join(' ')}>This is working</p>
+          <p className = {assignedClasses.join(' ')}>This is working</p>
           {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilian')} style={style}>Switch Name</button> */}
           {/* <button onClick={this.divHandler} style={style}>Switch Name</button> */}
           {/* <StyledButton onClick={this.divHandler} alt={this.state.showDiv}>Switch Name</StyledButton> */}
-          <button onClick={this.divHandler} className="button">Switch Name</button>
+          <button onClick={this.divHandler} className={Classes.Button}>Switch Name</button>
           {/* <button onClick={() => this.switchNameHandler('Maximilian')}>Switch Name</button> */}
           {/* <button onClick={switchNameHandler}>Switch Name</button> */}
           {/* <Person name = "Yo" age="44"/>
