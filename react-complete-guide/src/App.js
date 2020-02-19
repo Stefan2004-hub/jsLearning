@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import styled from 'styled-components';
 // import React, {useState} from 'react';
 // import logo from './logo.svg';
 import './App.css';
@@ -6,6 +7,19 @@ import './App.css';
 import Person from './Person/Person';
 // import { useState } from 'react';
 
+// const StyledButton = styled.button`
+// background-color:${props => props.alt ? 'red' : 'green'};
+// color:white;
+// font:inherit;
+// border:px solid blue;
+// padding: 8px;
+// cursor: pointer;
+
+// &:hover {
+//   background-color:${props => props.alt ? 'salmon' : 'lightgreen'};
+//   color:black;
+// }
+// `;
 class App extends Component {
   // const app = (props) => {
     state = {
@@ -69,18 +83,18 @@ class App extends Component {
     }
 
   render() {
-    const style = {
-      backgroundColor:'green',
-      color:'white',
-      font:'inherit',
-      border:'1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover':{
-        backgroundColor:'lightgreen',
-        color:'black'
-      }
-    };
+    // const style = {
+    //   backgroundColor:'green',
+    //   color:'white',
+    //   font:'inherit',
+    //   border:'1px solid blue',
+    //   padding: '8px',
+    //   cursor: 'pointer',
+    //   ':hover':{
+    //     backgroundColor:'lightgreen',
+    //     color:'black'
+    //   }
+    // };
 
     const classes = [];
 
@@ -112,12 +126,12 @@ class App extends Component {
           <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/> */}
         </div>
       );
-      style.backgroundColor = 'red';
+      // style.backgroundColor = 'red';
 
-      style[':hover'] = {
-        backgroundColor:'salmon',
-        color:'black'
-      }
+      // style[':hover'] = {
+      //   backgroundColor:'salmon',
+      //   color:'black'
+      // }
     }
 
     console.log(this.state);
@@ -150,7 +164,9 @@ class App extends Component {
           <h1>Hi, I am a Robot</h1>
           <p className = {classes.join(' ')}>This is working</p>
           {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilian')} style={style}>Switch Name</button> */}
-          <button onClick={this.divHandler} style={style}>Switch Name</button>
+          {/* <button onClick={this.divHandler} style={style}>Switch Name</button> */}
+          {/* <StyledButton onClick={this.divHandler} alt={this.state.showDiv}>Switch Name</StyledButton> */}
+          <button onClick={this.divHandler} className="button">Switch Name</button>
           {/* <button onClick={() => this.switchNameHandler('Maximilian')}>Switch Name</button> */}
           {/* <button onClick={switchNameHandler}>Switch Name</button> */}
           {/* <Person name = "Yo" age="44"/>
