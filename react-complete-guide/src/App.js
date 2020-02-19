@@ -97,6 +97,7 @@ class App extends Component {
     // };
 
     const assignedClasses = [];
+    const btnClass = [Classes.Button];
 
     if (this.state.persons.length <=2){
       assignedClasses.push(Classes.red);
@@ -126,6 +127,7 @@ class App extends Component {
           <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/> */}
         </div>
       );
+      btnClass.push(Classes.Red)
       // style.backgroundColor = 'red';
 
       // style[':hover'] = {
@@ -166,7 +168,7 @@ class App extends Component {
           {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilian')} style={style}>Switch Name</button> */}
           {/* <button onClick={this.divHandler} style={style}>Switch Name</button> */}
           {/* <StyledButton onClick={this.divHandler} alt={this.state.showDiv}>Switch Name</StyledButton> */}
-          <button onClick={this.divHandler} className={Classes.Button}>Switch Name</button>
+          <button onClick={this.divHandler} className={btnClass.join(' ')}>Switch Name</button>
           {/* <button onClick={() => this.switchNameHandler('Maximilian')}>Switch Name</button> */}
           {/* <button onClick={switchNameHandler}>Switch Name</button> */}
           {/* <Person name = "Yo" age="44"/>
