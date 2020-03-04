@@ -33,3 +33,6 @@ then in the config folder you have to alter the webpack.config.dev.js file -> af
 				  
 in the options, after the line importLoaders: 1,
 these two lines need to be passed also in the prod file, after the line sourceMap: shouldUseSourceMap,
+
+--how to install prop types from npm
+npm install --save prop-types

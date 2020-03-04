@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Classes from './Cockpit.css';
+import AuthContext from '../../context/auth-context';
 
 const cockpit = (props) => {
+    const toggleClickButton = useRef(null);
     // when the persons update
     // useEffect(() => {
     //     console.log('[Cockpit.js] useEffect');
@@ -12,6 +14,8 @@ const cockpit = (props) => {
     // }, [props.personList]);
 
     // the first time that the app runs - uses an empty array
+
+    /*
     useEffect(() => {
         console.log('[Cockpit.js] useEffect');
         // Http Request
@@ -22,6 +26,12 @@ const cockpit = (props) => {
             clearTimeout(timer);
             console.log('[Cockpit.js] cleanup work in useEffect');
         };
+    }, []);
+*/
+
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect');
+        toggleClickButton.current.click();
     }, []);
 
     useEffect(() => {
@@ -50,7 +60,14 @@ const cockpit = (props) => {
         <div className={Classes.Cockpit}>
             <h1>{props.title}</h1>
             <p className = {assignedClasses.join(' ')}>This is working</p>
-            <button onClick={props.divHandler} className={btnClass}>Switch Name</button>
+            <button 
+            onClick={props.divHandler} 
+            className={btnClass} 
+            ref={toggleClickButton}
+            >Toggle Person</button>
+            <AuthContext.Consumer>
+                {(context) => <button onClick={context.login}>Log IN</button>}
+            </AuthContext.Consumer>
         </div>
     );
 };
