@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useEffect, useContext} from 'react';
 import Classes from './Person.css';
 import withClas from '../../../hoc/WithClass';
 import Aux from '../../../hoc/Auxiliary';
@@ -7,16 +7,27 @@ import AuthContext from '../../../context/auth-context';
 
 const person = (props) => {
     const mainRef = useRef(null);
+    const autContext = useContext(AuthContext);
 
     useEffect(() => {
         mainRef.current.focus();
     }, []);
 
+    const IfAuth = () => {
+        if(autContext.authenticated){
+            return (<p>Authenticated</p>)
+        } else {
+            return (<p>Please Log in</p>)
+        }
+    }
+
     return (
         <Aux>
-            <AuthContext.Consumer>
+            {/* <AuthContext.Consumer>
                 {(context) => context.authenticated ? <p>Authenticated</p> : <p>Please Log in</p>}
-            </AuthContext.Consumer>
+            </AuthContext.Consumer> */}
+            <IfAuth/>
+            {/* {autContext.authenticated ? <p>Authenticated</p> : <p>Please Log in</p>} */}
             <p onClick={props.click}>I'm {props.name} and I am {props.age} years old</p>
             <p>{props.children}</p>
             <input 
