@@ -36,3 +36,5 @@ these two lines need to be passed also in the prod file, after the line sourceMa
 
 --how to install prop types from npm
 npm install --save prop-types
+
+--for the burger
